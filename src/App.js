@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-
+import billData from "./Data/output_50_bills.json"
+import Bill from './Components/Bill';
 function App() {
+
+  function logData(){
+    console.log(billData)
+  }
+  // Takes in a bill object, returns 3 arrays of names
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='topBox'>
+        Welcome to the bill data viewer. Click a bill to expand and view more information about it.
+        {/* <button onClick={logData}>Log</button> */}
+      </div>
+      {billData.map(bill => (
+        <Bill bill={bill}></Bill>
+      ))}
     </div>
   );
 }
